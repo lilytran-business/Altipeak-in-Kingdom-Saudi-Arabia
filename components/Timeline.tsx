@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Flag, Activity, Rocket, ChevronRight } from 'lucide-react';
 
@@ -8,7 +7,7 @@ const roadmap = [
     title: "Pilot Installation",
     icon: Flag,
     color: "#D4AF37",
-    desc: "Deployment of initial high-performance pods for government-selected pilot sites.",
+    desc: "Deploy Pilot Installations for the Government to validate tactical performance outcomes.",
     items: ["Site Analysis", "Modular Tech Assembly", "Baseline Physiological Testing"],
     animation: "slide-in-left"
   },
@@ -17,7 +16,7 @@ const roadmap = [
     title: "Regional Demo Hubs",
     icon: Activity,
     color: "#3881FC",
-    desc: "Establishing world-class Demonstration Centres in Riyadh and Jeddah.",
+    desc: "Establish world-class Demonstration Centres in Riyadh and Jeddah for stakeholder engagement.",
     items: ["Stakeholder Showcases", "Local Staff Training", "Protocol Validation"],
     animation: "slide-in-right"
   },
@@ -26,7 +25,7 @@ const roadmap = [
     title: "National Expansion",
     icon: Rocket,
     color: "#D4AF37",
-    desc: "Full-scale rollout across Giga-Projects and nationwide franchise expansion.",
+    desc: "Long-term strategic partnership and nationwide franchise expansion across Giga-Projects.",
     items: ["Military Integration", "NEOM Hub Launch", "Academy Certification"],
     animation: "slide-in-bottom"
   }
@@ -104,7 +103,7 @@ const Timeline: React.FC<{ id: string }> = ({ id }) => {
                   {/* Subtle Glow on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-[#3881FC]/0 group-hover/card:from-[#D4AF37]/5 group-hover/card:to-[#3881FC]/10 transition-all duration-700 rounded-[4rem]"></div>
 
-                  <div className={`flex flex-col ${idx % 2 === 1 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'}`}>
+                  <div className={`flex flex-col ${idx % 2 === 1 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} ${step.animation}`}>
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900 border border-white/10 text-[#D4AF37] text-[10px] font-black uppercase tracking-[0.3em] mb-8 group-hover/card:border-[#D4AF37]/40 transition-colors">
                       <step.icon size={14} className="group-hover/card:animate-bounce" />
                       {step.phase}
@@ -151,7 +150,7 @@ const Timeline: React.FC<{ id: string }> = ({ id }) => {
       <div className="mt-40 text-center">
         <p className="text-slate-500 font-black uppercase tracking-[0.5em] text-[10px] mb-12">Vision 2030 Deployment Milestone Strategy</p>
         <a 
-          href="#strategic-framework" 
+          href="#vision" 
           className="inline-flex items-center gap-4 px-12 py-6 rounded-full bg-white/5 border border-white/10 hover:border-[#D4AF37] hover:bg-white/10 text-white transition-all duration-500 group"
         >
           <span className="text-sm font-black uppercase tracking-widest">Review Engagement Strategy</span>
