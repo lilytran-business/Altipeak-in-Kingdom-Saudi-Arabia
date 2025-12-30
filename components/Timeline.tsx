@@ -93,17 +93,16 @@ const Timeline: React.FC<{ id: string }> = ({ id }) => {
           {roadmap.map((step, idx) => (
             <div 
               key={idx} 
-              className={`flex flex-col md:flex-row items-center gap-12 group section-reveal ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+              className={`flex flex-col md:flex-row items-center gap-12 group ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
             >
-              {/* Content Card */}
-              <div className="flex-1 w-full">
+              {/* Content Card Wrapper with Entrance Animation */}
+              <div className={`flex-1 w-full opacity-0 ${step.animation}`}>
                 <div 
                   className={`relative p-10 md:p-14 glass-card rounded-[4rem] border border-white/5 hover:border-[#D4AF37]/40 transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_80px_rgba(0,0,0,0.6)] group/card shadow-2xl`}
                 >
-                  {/* Subtle Glow on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-[#3881FC]/0 group-hover/card:from-[#D4AF37]/5 group-hover/card:to-[#3881FC]/10 transition-all duration-700 rounded-[4rem]"></div>
 
-                  <div className={`flex flex-col ${idx % 2 === 1 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} ${step.animation}`}>
+                  <div className={`flex flex-col ${idx % 2 === 1 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'}`}>
                     <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-slate-900 border border-white/10 text-[#D4AF37] text-[10px] font-black uppercase tracking-[0.3em] mb-8 group-hover/card:border-[#D4AF37]/40 transition-colors">
                       <step.icon size={14} className="group-hover/card:animate-bounce" />
                       {step.phase}
@@ -131,7 +130,6 @@ const Timeline: React.FC<{ id: string }> = ({ id }) => {
                  <div className="w-24 h-24 rounded-[2rem] bg-slate-950 border-4 border-slate-900 shadow-2xl z-20 flex items-center justify-center group-hover:rotate-[360deg] transition-all duration-[1.5s] ease-in-out group-hover:border-[#D4AF37]">
                     <step.icon size={32} className="text-[#D4AF37]" />
                  </div>
-                 {/* Connection point line for mobile */}
                  <div className="md:hidden absolute top-full h-32 w-0.5 bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
               </div>
 
@@ -167,27 +165,26 @@ const Timeline: React.FC<{ id: string }> = ({ id }) => {
           animation: shimmer 3s infinite linear;
         }
         
-        /* Reveal animations are handled by Intersection Observer in App.tsx */
         .visible .slide-in-left {
-          animation: slideInLeft 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: slideInLeft 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
         .visible .slide-in-right {
-          animation: slideInRight 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: slideInRight 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
         .visible .slide-in-bottom {
-          animation: slideInBottom 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation: slideInBottom 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
 
         @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-100px); }
+          from { opacity: 0; transform: translateX(-60px); }
           to { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(100px); }
+          from { opacity: 0; transform: translateX(60px); }
           to { opacity: 1; transform: translateX(0); }
         }
         @keyframes slideInBottom {
-          from { opacity: 0; transform: translateY(100px); }
+          from { opacity: 0; transform: translateY(60px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
