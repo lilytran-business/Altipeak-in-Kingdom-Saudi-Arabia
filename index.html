@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Altipeak™ International | KSA Strategic Vision 2030</title>
+    
+    <!-- External Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy-deep: #0A192F;
+            --navy-light: #112240;
+            --blue-accent: #3881FC;
+            --gold-accent: #D4AF37;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--navy-deep);
+            color: #f8fafc;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F5E050 50%, #D4AF37 100%); }
+        .gold-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F5E050 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .section-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes slow-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(2deg) scale(1.05); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+        .animate-slow-rotate { animation: slow-rotate 8s infinite ease-in-out; }
+
+        @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        .animate-shimmer { position: relative; overflow: hidden; }
+        .animate-shimmer::after {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite linear;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--navy-deep); }
+        ::-webkit-scrollbar-thumb { background: #233554; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--blue-accent); }
+    </style>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.460.0",
+    "htm": "https://esm.sh/htm@3.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module">
+        import React, { useState, useEffect, useRef } from 'react';
+        import ReactDOM from 'react-dom/client';
+        import * as Lucide from 'lucide-react';
+        import htm from 'htm';
+
+        const html = htm.bind(React.createElement);
+
+        const LOGO_URL = "https://res.cloudinary.com/dpweu2ene/image/upload/v1768813034/Vision-2030-logo_1_134740_cmwlbz.png";
+        const HERO_BG_IMAGE = "https://res.cloudinary.com/dpweu2ene/image/upload/v1768809658/Copy_of_665_b5sx2i.jpg";
+
+        const PILLARS_DATA = [
+            { 
+              id: 'pillar1', 
+              title: "Elite Performance", 
+              subtitle: "Olympic & Military Readiness", 
+              icon: 'Trophy', 
+              visualUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200", 
+              downloadUrl: "https://drive.google.com/file/d/1LpxFj2M4blZ5NvB9ZfAOWjFla-9kcC_L/view?usp=drive_link", 
+              details: [
+                { label: "VO2 Max Optimization", text: "Demonstrated improvements in oxygen transport capacity and lactate threshold through controlled Hypoxic conditioning.", statValue: "15+", statUnit: "Years", statColor: "#D4AF37" },
+                { label: "Cellular Power", text: "Peer-reviewed evidence supports the stimulation of natural EPO production and enhancement of mitochondrial density for sustained endurance.", statValue: "5+", statUnit: "Nation", statColor: "#3881FC" },
+                { label: "Rapid Acclimatization", text: "Optimized pre-acclimatization protocols to enhance physiological adaptation efficiency for global competitions and high-altitude deployment.", statValue: "1", statUnit: "Tier", statColor: "#D4AF37" },
+                { label: "Military Readiness", text: "Specialized thermal adaptation and cognitive resilience frameworks designed for elite tactical performance in comparable operational environments.", statValue: "2030", statUnit: "Vision", statColor: "#3881FC" }
+              ] 
+            },
+            { 
+              id: 'pillar2', 
+              title: "Clinical & Metabolic Rehab", 
+              subtitle: "Evidence-Led Recovery", 
+              icon: 'HeartPulse', 
+              visualUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200", 
+              downloadUrl: "https://drive.google.com/file/d/1Qs2BkPc_oDqPwCCU1gQnNRXjLMwKJ88U/view?usp=drive_link", 
+              details: [
+                { label: "Metabolic Support", text: "Evidence-led protocols for metabolic rate modulation and endocrine regulation to support sustainable weight management.", statValue: "100%", statUnit: "Medical", statColor: "#D4AF37" },
+                { label: "Neuro-Recovery Systems", text: "Intermittent hypoxia protocols designed to enhance neurological recovery and complement traditional physical therapy outcomes.", statValue: "Phase 1", statUnit: "Ready", statColor: "#3881FC" },
+                { label: "Chronic Conditions Mgmt", text: "Innovative therapeutic support for type-2 diabetes glucose management and respiratory health (asthma) recovery.", statValue: "24/7", statUnit: "Monitoring", statColor: "#D4AF37" },
+                { label: "Institutional Integration", text: "Modular, medically-certified systems engineered for seamless deployment within leading saudi healthcare infrastructure.", statValue: "ISO", statUnit: "CERTIFIED", statColor: "#3881FC" }
+              ] 
+            },
+            { 
+              id: 'pillar3', 
+              title: "Urban Human Resilience", 
+              subtitle: "Mega-Project Integration", 
+              icon: 'Landmark', 
+              visualUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200", 
+              downloadUrl: "https://drive.google.com/file/d/1Bo7vFBVD3Bkb43occcvrBAeKdo7NWDjN/view?usp=drive_link", 
+              details: [
+                { label: "Strategic Infrastructure", text: "First-mover integration of specialized human performance systems within saudi giga-project urban frameworks.", statValue: "1", statUnit: "Mover", statColor: "#D4AF37" },
+                { label: "Operational Reliability", text: "Documented high utilization rates of environmental systems in institutional and commercial deployments.", statValue: "99%", statUnit: "Uptime", statColor: "#3881FC" },
+                { label: "Giga-Project Scalability", text: "Bespoke climate simulation solutions engineered for iconic urban centers, supporting physiological resilience at scale.", statValue: "10+", statUnit: "Projects", statColor: "#D4AF37" },
+                { label: "National Service Ecosystem", text: "Strategic maintenance partnerships with local engineering entities to ensure consistent technical uptime and reliability.", statValue: "24/7", statUnit: "Support", statColor: "#3881FC" }
+              ] 
+            }
+        ];
+
+        const Sidebar = ({ activeSection }) => {
+            const scrollTo = (id) => {
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            };
+            return html`
+                <nav className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-[#0A192F]/80 backdrop-blur-2xl border-r border-white/5 flex-col z-50">
+                    <div className="p-10">
+                        <h1 className="text-2xl font-black tracking-tighter gold-text leading-none uppercase">ALTIPEAK™</h1>
+                    </div>
+                    <div className="flex-1 px-4 space-y-2 flex flex-col justify-center">
+                        ${['home', 'capability', 'vision', 'roadmap', 'engagement'].map(id => html`
+                            <button key=${id} onClick=${() => scrollTo(id)} className=${`text-left py-4 px-6 rounded-2xl uppercase text-[10px] tracking-widest font-black ${activeSection === id ? 'text-[#D4AF37] bg-white/5' : 'text-slate-400'}`}>
+                                ${id}
+                            </button>
+                        `)}
+                    </div>
+                </nav>
+            `;
+        };
+
+        const Hero = () => html`
+            <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-[#0A192F]">
+                <div className="absolute inset-0 z-0">
+                    <img src=${HERO_BG_IMAGE} className="w-full h-full object-cover opacity-20" alt="Background" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0A192F] via-transparent to-[#0A192F]" />
+                </div>
+                <div className="container mx-auto px-6 md:px-12 relative z-10 text-left">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#3881FC]/10 border border-[#3881FC]/30 text-[#3881FC] text-[10px] font-black tracking-[0.4em] uppercase mb-10">
+                        <${Lucide.PlayCircle} size=${14} /> KSA Strategic Blueprint v5.0
+                    </div>
+                    <div className="flex flex-col md:flex-row md:items-end gap-12 mb-8">
+                        <h1 className="text-4xl md:text-7xl xl:text-8xl font-light text-white uppercase leading-[0.9] tracking-tighter">
+                            National Human <br/> <span className="font-black gold-text italic">Performance Ecosystem</span>
+                        </h1>
+                        <img src=${LOGO_URL} className="h-24 md:h-32 object-contain" alt="Vision 2030" />
+                    </div>
+                    <p className="text-xl md:text-2xl text-slate-400 font-medium tracking-tight mb-12 max-w-2xl">
+                        A modular, pilot-ready human capability framework aligned with Saudi Vision 2030.
+                    </p>
+                    <div className="flex flex-wrap gap-6">
+                        <a href="#vision" className="gold-gradient text-slate-950 px-12 py-6 rounded-full font-black uppercase tracking-widest hover:scale-105 transition-all">View Pilot Use-Cases</a>
+                        <a href="#engagement" className="border-2 border-white/20 text-white px-12 py-6 rounded-full font-black uppercase tracking-widest hover:bg-white/5 transition-all">Request Government Briefing</a>
+                    </div>
+                </div>
+            </section>
+        `;
+
+        const StrategicFramework = ({ onSelectPillar }) => html`
+            <section id="vision" className="py-32 px-6">
+                <div className="container mx-auto text-center mb-20">
+                    <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4">Saudi <span className="gold-text">Use-Cases</span></h2>
+                    <p className="text-slate-400 uppercase text-xs tracking-[0.4em]">Directly aligned with Vision 2030 Human Capability Development Program</p>
+                </div>
+                <div className="container mx-auto grid lg:grid-cols-3 gap-10">
+                    ${PILLARS_DATA.map(p => html`
+                        <div key=${p.id} onClick=${() => onSelectPillar(p)} className="glass-card h-[600px] rounded-[3.5rem] p-12 flex flex-col justify-between cursor-pointer group hover:border-[#D4AF37]/50 transition-all">
+                            <div>
+                                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#D4AF37] mb-8 border border-white/5">
+                                    <${Lucide[p.icon]} size={32} />
+                                </div>
+                                <h4 className="text-3xl font-black text-white uppercase leading-none mb-4">${p.title}</h4>
+                                <p className="text-[#3881FC] font-black uppercase text-xs tracking-widest">${p.subtitle}</p>
+                            </div>
+                            <span className="gold-text font-black uppercase text-xs flex items-center gap-2">Explore Case Study <${Lucide.ArrowRight} size=${14} /></span>
+                        </div>
+                    `)}
+                </div>
+            </section>
+        `;
+
+        const PillarModal = ({ pillar, onClose }) => {
+            const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+            const videoUrl = "https://res.cloudinary.com/dpweu2ene/video/upload/v1768817911/Irish_altitude_Chambers_UAE_Dubai_ujvpmv.mp4";
+            
+            const galleryItems = [
+              { url: "https://res.cloudinary.com/dpweu2ene/image/upload/v1768809658/Copy_of_665_b5sx2i.jpg", title: "European-engineered systems" },
+              { url: "https://res.cloudinary.com/dpweu2ene/image/upload/v1768809601/2_zjuvjz.png", title: "Clinical Operating Environment" },
+              { url: "https://res.cloudinary.com/dpweu2ene/image/upload/v1768809578/699_zeor1w.jpg", title: "Elite Performance Systems" },
+              { url: "https://res.cloudinary.com/dpweu2ene/image/upload/v1768809496/Screenshot_2026-01-06_050056_nne4zc.png", title: "Local KSA capability" }
+            ];
+
+            return html`
+                <div className="fixed inset-0 z-[500] flex items-center justify-center p-4">
+                    <div className="absolute inset-0 bg-[#0A192F]/98 backdrop-blur-3xl" onClick=${onClose} />
+                    <div className="relative w-full h-full max-w-6xl glass-card rounded-[4rem] overflow-hidden flex flex-col shadow-2xl animate-in zoom-in-95">
+                        <div className="flex-1 overflow-y-auto p-12">
+                            <div className="flex justify-between items-start mb-12">
+                                <div>
+                                    <h2 className="text-5xl font-black text-white uppercase tracking-tighter">${pillar.title}</h2>
+                                    <p className="text-[#3881FC] font-black uppercase tracking-[0.2em] mt-2">${pillar.subtitle}</p>
+                                </div>
+                                <button onClick=${onClose} className="p-4 rounded-full bg-white/5 text-white hover:bg-white/10 transition-all"><${Lucide.X} size=${28} /></button>
+                            </div>
+
+                            <div className="grid lg:grid-cols-12 gap-10 mb-12">
+                                <div className="lg:col-span-7 aspect-video rounded-[3rem] overflow-hidden bg-slate-900 border border-white/5 relative group cursor-pointer" onClick=${() => setIsVideoPlaying(true)}>
+                                    ${!isVideoPlaying ? html`
+                                        <>
+                                            <img src="https://res.cloudinary.com/dpweu2ene/image/upload/v1768809658/Copy_of_665_b5sx2i.jpg" className="w-full h-full object-cover opacity-60" />
+                                            <div className="absolute inset-0 flex items-center justify-center">
+                                                <div className="w-20 h-20 rounded-full bg-[#D4AF37] flex items-center justify-center text-slate-950 shadow-2xl group-hover:scale-110 transition-transform">
+                                                    <${Lucide.PlayCircle} size=${40} fill="currentColor" />
+                                                </div>
+                                            </div>
+                                        </>
+                                    ` : html`
+                                        <video className="w-full h-full object-cover" controls autoPlay playsInline>
+                                            <source src=${videoUrl} type="video/mp4" />
+                                        </video>
+                                    `}
+                                </div>
+                                <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+                                    ${galleryItems.map(item => html`
+                                        <div className="relative group overflow-hidden rounded-3xl h-40 border border-white/5">
+                                            <img src=${item.url} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                                                <p className="text-[8px] font-black gold-text uppercase">${item.title}</p>
+                                            </div>
+                                        </div>
+                                    `)}
+                                </div>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                                ${pillar.details.map(d => html`
+                                    <div className="p-8 rounded-[2rem] bg-white/5 border border-white/5 hover:border-[#D4AF37]/30 transition-all">
+                                        <div className="flex items-baseline gap-2 mb-4">
+                                            <span className="text-3xl font-black gold-text italic tracking-tighter">${d.statValue}</span>
+                                            <span className="text-[10px] font-black text-slate-500 uppercase">${d.statUnit}</span>
+                                        </div>
+                                        <h5 className="text-white font-black uppercase text-xs mb-2 tracking-tight">${d.label}</h5>
+                                        <p className="text-slate-400 text-[11px] leading-relaxed line-clamp-3">${d.text}</p>
+                                    </div>
+                                `)}
+                            </div>
+                        </div>
+                        <div className="p-12 bg-white/5 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
+                            <img src=${LOGO_URL} className="h-10 object-contain" />
+                            <a href=${pillar.downloadUrl} target="_blank" className="gold-gradient text-slate-950 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl">Download Strategic Brief</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        const App = () => {
+            const [selPillar, setSelPillar] = useState(null);
+            const [active, setActive] = useState('home');
+
+            useEffect(() => {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => { if (e.isIntersecting) { setActive(e.target.id); e.target.classList.add('visible'); } });
+                }, { threshold: 0.15 });
+                document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
+                return () => obs.disconnect();
+            }, []);
+
+            return html`
+                <div className="min-h-screen bg-[#0A192F]">
+                    <${Sidebar} activeSection=${active} />
+                    <main className="flex-1 lg:ml-64">
+                        <${Hero} />
+                        <${StrategicFramework} onSelectPillar=${setSelPillar} />
+                        
+                        <section id="engagement" className="py-32 px-6 bg-slate-950">
+                            <div className="container mx-auto max-w-4xl text-center">
+                                <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-12">Request <span className="gold-text">Briefing</span></h2>
+                                <div className="glass-card p-12 rounded-[3rem] border-[#D4AF37]/30">
+                                     <form className="space-y-8">
+                                        <input placeholder="Ministry / Entity Name" className="w-full bg-transparent border-b-2 border-slate-800 p-4 text-white outline-none focus:border-[#D4AF37]" />
+                                        <button className="gold-gradient text-slate-950 px-12 py-6 rounded-full font-black uppercase tracking-widest w-full">Initiate Protocol</button>
+                                     </form>
+                                </div>
+                            </div>
+                        </section>
+
+                        <footer className="py-20 text-center border-t border-white/5 flex flex-col items-center">
+                            <img src=${LOGO_URL} className="h-16 mb-8 object-contain" />
+                            <p className="text-slate-500 uppercase tracking-widest text-[10px]">© 2024 Altipeak™ International | Strategic Saudi Vision 2030 Partner</p>
+                        </footer>
+                    </main>
+                    ${selPillar && html`<${PillarModal} pillar=${selPillar} onClose=${() => setSelPillar(null)} />`}
+                </div>
+            `;
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
