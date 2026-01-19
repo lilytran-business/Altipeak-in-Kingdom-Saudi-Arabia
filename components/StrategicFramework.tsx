@@ -11,10 +11,10 @@ const pillarsData: PillarData[] = [
     visualUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "VO2 Max Optimization", text: "Demonstrated improvements in oxygen transport capacity and lactate threshold through controlled Hypoxic conditioning.", statValue: "10", statUnit: "%", statColor: "#D4AF37" },
-      { label: "Cellular Power", text: "Peer-reviewed evidence supports the stimulation of natural EPO production and enhancement of mitochondrial density for sustained endurance.", statValue: "EPO", statUnit: "+", statColor: "#3881FC" },
-      { label: "Rapid Acclimatization", text: "Optimized pre-acclimatization protocols to enhance physiological adaptation efficiency for global competitions and high-altitude deployment.", statValue: "50", statUnit: "%", statColor: "#D4AF37" },
-      { label: "Military Readiness", text: "Specialized thermal adaptation and cognitive resilience frameworks designed for elite tactical performance in comparable operational environments.", statValue: "T1", statUnit: "Tactical", statColor: "#3881FC" }
+      { label: "VO2 Max Optimization", text: "Demonstrated improvements in oxygen transport capacity and lactate threshold through controlled Hypoxic conditioning.", statValue: "15+", statUnit: "Year", statColor: "#D4AF37" },
+      { label: "Cellular Power", text: "Peer-reviewed evidence supports the stimulation of natural EPO production and enhancement of mitochondrial density for sustained endurance.", statValue: "5+", statUnit: "Nation", statColor: "#3881FC" },
+      { label: "Rapid Acclimatization", text: "Optimized pre-acclimatization protocols to enhance physiological adaptation efficiency for global competitions and high-altitude deployment.", statValue: "1", statUnit: "Tier", statColor: "#D4AF37" },
+      { label: "Military Readiness", text: "Specialized thermal adaptation and cognitive resilience frameworks designed for elite tactical performance in comparable operational environments.", statValue: "2030", statUnit: "Vision", statColor: "#3881FC" }
     ]
   },
   {
@@ -25,10 +25,10 @@ const pillarsData: PillarData[] = [
     visualUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "Metabolic Support", text: "Evidence-led protocols for metabolic rate modulation and endocrine regulation to support sustainable weight management.", statValue: "12", statUnit: "kg/mo", statColor: "#D4AF37" },
-      { label: "Neuro-Recovery Systems", text: "Intermittent hypoxia protocols designed to enhance neurological recovery and complement traditional physical therapy outcomes.", statValue: "3x", statUnit: "Recovery", statColor: "#3881FC" },
-      { label: "Chronic Condition Mgmt", text: "Innovative therapeutic support for type-2 diabetes glucose management and respiratory health (asthma) recovery.", statValue: "Live", statUnit: "Monitoring", statColor: "#D4AF37" },
-      { label: "Institutional Integration", text: "Modular, medically-certified systems engineered for seamless deployment within leading saudi healthcare infrastructure.", statValue: "100", statUnit: "%", statColor: "#3881FC" }
+      { label: "Metabolic Support", text: "Evidence-led protocols for metabolic rate modulation and endocrine regulation to support sustainable weight management.", statValue: "100%", statUnit: "Medical", statColor: "#D4AF37" },
+      { label: "Neuro-Recovery Systems", text: "Intermittent hypoxia protocols designed to enhance neurological recovery and complement traditional physical therapy outcomes.", statValue: "Phase 1", statUnit: "Ready", statColor: "#3881FC" },
+      { label: "Chronic Condition Mgmt", text: "Innovative therapeutic support for type-2 diabetes glucose management and respiratory health (asthma) recovery.", statValue: "24/7", statUnit: "Monitoring", statColor: "#D4AF37" },
+      { label: "Institutional Integration", text: "Modular, medically-certified systems engineered for seamless deployment within leading saudi healthcare infrastructure.", statValue: "ISO", statUnit: "CERTIFIED", statColor: "#3881FC" }
     ]
   },
   {
@@ -39,10 +39,10 @@ const pillarsData: PillarData[] = [
     visualUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "Strategic Infrastructure", text: "First-mover integration of specialized human performance systems within saudi giga-project urban frameworks.", statValue: "Blue", statUnit: "Ocean", statColor: "#D4AF37" },
-      { label: "Operational Reliability", text: "Documented high utilization rates of environmental systems in institutional and commercial deployments..", statValue: "94", statUnit: "%", statColor: "#3881FC" },
-      { label: "Giga-Project Scalability", text: "Bespoke climate simulation solutions engineered for iconic urban centers, supporting physiological resilience at scale.", statValue: "10", statUnit: "km", statColor: "#D4AF37" },
-      { label: "National Service Ecosystem", text: "Strategic maintenance partnerships with local engineering entities to ensure consistent technical uptime and reliability.", statValue: "24/7", statUnit: "Uptime", statColor: "#3881FC" }
+      { label: "Strategic Infrastructure", text: "First-mover integration of specialized human performance systems within saudi giga-project urban frameworks.", statValue: "1st", statUnit: "Mover", statColor: "#D4AF37" },
+      { label: "Operational Reliability", text: "Documented high utilization rates of environmental systems in institutional and commercial deployments..", statValue: "99%", statUnit: "Uptime", statColor: "#3881FC" },
+      { label: "Giga-Project Scalability", text: "Bespoke climate simulation solutions engineered for iconic urban centers, supporting physiological resilience at scale.", statValue: "10+", statUnit: "Projects", statColor: "#D4AF37" },
+      { label: "National Service Ecosystem", text: "Strategic maintenance partnerships with local engineering entities to ensure consistent technical uptime and reliability.", statValue: "24/7", statUnit: "Support", statColor: "#3881FC" }
     ]
   }
 ];
