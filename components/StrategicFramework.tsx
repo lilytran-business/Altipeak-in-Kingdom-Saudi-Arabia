@@ -6,43 +6,43 @@ const pillarsData: PillarData[] = [
   {
     id: 'pillar1',
     title: "Elite Performance",
-    subtitle: "Military & Olympic Readiness",
+    subtitle: "Olympic & Military Readiness",
     icon: Trophy,
     visualUrl: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "VO2 Max Optimization", text: "Improve oxygen transport capacity and lactate threshold by up to 10% via Hypoxic conditioning.", statValue: "10", statUnit: "%", statColor: "#D4AF37" },
-      { label: "Cellular Power", text: "Naturally stimulate EPO production and enhance mitochondrial density for superior endurance.", statValue: "EPO", statUnit: "+", statColor: "#3881FC" },
-      { label: "Rapid Acclimatization", text: "Cut high-altitude preparation time by 50%. Pre-acclimatize at base for global competition.", statValue: "50", statUnit: "%", statColor: "#D4AF37" },
-      { label: "Military Readiness", text: "Heat adaptation and cognitive resilience training for specialized military operations.", statValue: "T1", statUnit: "Tactical", statColor: "#3881FC" }
+      { label: "VO2 Max Optimization", text: "Demonstrated improvements in oxygen transport capacity and lactate threshold through controlled Hypoxic conditioning.", statValue: "10", statUnit: "%", statColor: "#D4AF37" },
+      { label: "Cellular Power", text: "Peer-reviewed evidence supports the stimulation of natural EPO production and enhancement of mitochondrial density for sustained endurance.", statValue: "EPO", statUnit: "+", statColor: "#3881FC" },
+      { label: "Rapid Acclimatization", text: "Optimized pre-acclimatization protocols to enhance physiological adaptation efficiency for global competitions and high-altitude deployment.", statValue: "50", statUnit: "%", statColor: "#D4AF37" },
+      { label: "Military Readiness", text: "Specialized thermal adaptation and cognitive resilience frameworks designed for elite tactical performance in comparable operational environments.", statValue: "T1", statUnit: "Tactical", statColor: "#3881FC" }
     ]
   },
   {
     id: 'pillar2',
-    title: "Clinical Rehab",
-    subtitle: "Altitude Therapy & Recovery",
+    title: "Clinical & Metabolic Rehab",
+    subtitle: "Evidence-Led Recovery",
     icon: HeartPulse,
     visualUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "Metabolic Breakthrough", text: "Effective weight loss via leptin hormone modulation and significant metabolic rate increase.", statValue: "12", statUnit: "kg/mo", statColor: "#D4AF37" },
-      { label: "Spinal Cord Rehab", text: "Intermittent Hypoxia protocols mirroring weeks of traditional therapy in just days.", statValue: "3x", statUnit: "Recovery", statColor: "#3881FC" },
-      { label: "Chronic Disease Mgmt", text: "Innovative support for Type-2 Diabetes glucose levels and Asthma recovery protocols.", statValue: "Live", statUnit: "Monitoring", statColor: "#D4AF37" },
-      { label: "Modular Integration", text: "Modular, medically-certified systems for leading Saudi hospitals like Alhabib and Fakeeh.", statValue: "100", statUnit: "%", statColor: "#3881FC" }
+      { label: "Metabolic Support", text: "Evidence-led protocols for metabolic rate modulation and endocrine regulation to support sustainable weight management.", statValue: "12", statUnit: "kg/mo", statColor: "#D4AF37" },
+      { label: "Neuro-Recovery Systems", text: "Intermittent hypoxia protocols designed to enhance neurological recovery and complement traditional physical therapy outcomes.", statValue: "3x", statUnit: "Recovery", statColor: "#3881FC" },
+      { label: "Chronic Condition Mgmt", text: "Innovative therapeutic support for type-2 diabetes glucose management and respiratory health (asthma) recovery.", statValue: "Live", statUnit: "Monitoring", statColor: "#D4AF37" },
+      { label: "Institutional Integration", text: "Modular, medically-certified systems engineered for seamless deployment within leading saudi healthcare infrastructure.", statValue: "100", statUnit: "%", statColor: "#3881FC" }
     ]
   },
   {
     id: 'pillar3',
-    title: "Giga-Urban Assets",
-    subtitle: "NEOM & Urban Infrastructure",
+    title: "Urban Human Resilience",
+    subtitle: "Mega-Project Integration",
     icon: Landmark,
     visualUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
     visualType: 'image',
     details: [
-      { label: "Market Advantage", text: "First-mover advantage in specialized altitude franchising across the Kingdom of Saudi Arabia.", statValue: "Blue", statUnit: "Ocean", statColor: "#D4AF37" },
-      { label: "Proven Success", text: "Altibox™ and AltiHITT™ turn-key solutions with documented 94% average occupancy rates.", statValue: "94", statUnit: "%", statColor: "#3881FC" },
-      { label: "Giga-Project Scale", text: "Bespoke full-climate simulation up to 10km altitude for iconic futuristic urban centers.", statValue: "10", statUnit: "km", statColor: "#D4AF37" },
-      { label: "Sullair Support", text: "Strategic maintenance partnership with local engineers for 24/7 technical uptime.", statValue: "24/7", statUnit: "Uptime", statColor: "#3881FC" }
+      { label: "Strategic Infrastructure", text: "First-mover integration of specialized human performance systems within saudi giga-project urban frameworks.", statValue: "Blue", statUnit: "Ocean", statColor: "#D4AF37" },
+      { label: "Operational Reliability", text: "Documented high utilization rates of environmental systems in institutional and commercial deployments..", statValue: "94", statUnit: "%", statColor: "#3881FC" },
+      { label: "Giga-Project Scalability", text: "Bespoke climate simulation solutions engineered for iconic urban centers, supporting physiological resilience at scale.", statValue: "10", statUnit: "km", statColor: "#D4AF37" },
+      { label: "National Service Ecosystem", text: "Strategic maintenance partnerships with local engineering entities to ensure consistent technical uptime and reliability.", statValue: "24/7", statUnit: "Uptime", statColor: "#3881FC" }
     ]
   }
 ];
