@@ -30,7 +30,7 @@ const Hero: React.FC<{ id: string }> = ({ id }) => {
             loop 
             playsInline
             className="w-full h-full object-cover opacity-20"
-            poster="https://res.cloudinary.com/dpweu2ene/image/upload/v1768809658/Copy_of_665_b5sx2i.jpg?auto=format&fit=crop&q=1920"
+            poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=1920"
           >
             <source src="https://player.vimeo.com/external/494252666.sd.mp4?s=bc463e230554f676993ef07a16062f8b50242279&profile_id=165" type="video/mp4" />
           </video>
